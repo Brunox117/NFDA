@@ -1,0 +1,33 @@
+Make a program that reads, from a file, the elements that define an NDFA and process strings by
+means of the extended transition function.
+The transition table will be defined in a txt file. The file shall be defined as follows:
+- The first line indicates the set of states of the automata separated by commas.
+- The second line indicates the alphabet symbols separated by commas
+- The third line indicates the initial state
+- The fourth line indicates the set of final states separated by commas.
+- The following lines indicate the evaluation of the transition function with the elements of the
+alphabet in the following format:
+state, symbol = > state1, state2, ... stateN
+Example, the following line
+q0, a = > q0 , q1, q5
+indicates that the NDFA processes the following: �(�0, �) = {�0, �1, �5}
+It is not necessary that all transitions are specified in this file. An evaluation may not appear
+indicating that the result of that evaluation is the empty set
+Finally, the program should ask for a string and show, step by step, its processing by means of
+the automaton and indicate if the string is rejected or accepted.
+The test files are only examples. Your program should work for any file that follows the
+conventions for the structure denoted above. Use functions as “split” to process the lines in the
+file instead of read char by char. This will make your program more general. Your program will
+be tested with files different to those used as examples.
+Your program should have at least three methods:
+1. Simple transition function. It should receive a state and a character. It should return a set
+of states
+2. Union. It will receive two sets of states and return their union as a single set.
+3. Extended transition function. It should receive a state and a string. It should return a set
+of states.
+The program should use recursion correctly at least for the extended transition function.
+Your program should show a correct use of data structures. At least, the transition table of the
+NDFA should be represented as
+Dictionary {key: state, value: Dictionary {key: char or lambda, value: list_of_states}}
+Your program should correctly apply the conceptual elements of this course.
+Do not worry about validating the values in the input file. Suppose they were built correctly.
